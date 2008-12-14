@@ -1,12 +1,12 @@
 Name:           bindfs
 Version:        1.8.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
 License:        GPLv2+
-URL:            http://www.cs.helsinki.fi/u/partel/bindfs/
-Source0:        http://www.cs.helsinki.fi/u/partel/bindfs/releases/bindfs-%{version}.tar.gz
+URL:            http://code.google.com/p/bindfs/
+Source0:        http://bindfs.googlecode.com/files/bindfs-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  fuse-devel
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Dec 14 2008 Till Maas <opensource@till.name> - 1.8.2-2
+- Update URL and Source0 to google code
+
 * Sun Dec 14 2008 Till Maas <opensource@till.name> - 1.8.2-1
 - Update to new release with GPLv2+ license headers 
 
