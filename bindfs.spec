@@ -1,6 +1,6 @@
 Name:           bindfs
 Version:        1.8.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Sep 17 2009 Peter Lemenkov <lemenkov@gmail.com> - 1.8.3-3
+- Rebuilt with new fuse
+
 * Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.8.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
