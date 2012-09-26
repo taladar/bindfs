@@ -1,6 +1,6 @@
 Name:           bindfs
-Version:        1.10
-Release:        2%{?dist}
+Version:        1.11
+Release:        1%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
@@ -10,7 +10,6 @@ Source0:        http://bindfs.googlecode.com/files/bindfs-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  fuse-devel
-BuildRequires:  recode
 
 
 %description
@@ -20,7 +19,6 @@ the mirror directory.
 
 %prep
 %setup -q
-recode latin1..utf8 ChangeLog
 
 
 %build
@@ -45,6 +43,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Sep 26 2012 Till Maas <opensource@till.name> - 1.11-1
+- Update to new release
+- Do not recode ChangeLog anymore
+
 * Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.10-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
