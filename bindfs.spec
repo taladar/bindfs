@@ -1,12 +1,12 @@
 Name:           bindfs
-Version:        1.11
-Release:        2%{?dist}
+Version:        1.12.2
+Release:        1%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
 License:        GPLv2+
-URL:            http://code.google.com/p/bindfs/
-Source0:        http://bindfs.googlecode.com/files/bindfs-%{version}.tar.gz
+URL:            http://bindfs.org/
+Source0:        http://bindfs.org/downloads//bindfs-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  fuse-devel
@@ -43,6 +43,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Jul 25 2013 Till Maas <opensource@till.name> - 1.12.2-1
+- Update to new release
+- Update URL
+- Update source URL
+
 * Wed Feb 13 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.11-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
