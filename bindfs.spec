@@ -1,7 +1,7 @@
 %global _hardened_build 1
 
 Name:           bindfs
-Version:        1.12.3
+Version:        1.12.4
 Release:        1%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Jun 05 2014 Till Maas <opensource@till.name> - 1.12.4-1
+- Update to new release
+
 * Wed Jan 15 2014 Till Maas <opensource@till.name> - 1.12.3-1
 - Update to new release
 - Harden build
