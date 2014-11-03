@@ -1,8 +1,8 @@
 %global _hardened_build 1
 
 Name:           bindfs
-Version:        1.12.4
-Release:        3%{?dist}
+Version:        1.12.6
+Release:        1%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
@@ -45,6 +45,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Nov 03 2014 Till Maas <opensource@till.name> - 1.12.6-1
+- Update to new release
+
 * Fri Aug 15 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.12.4-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
