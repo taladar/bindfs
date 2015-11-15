@@ -43,7 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %check
-make check
+# show test-suite on errors
+make check || (cat tests/test-suite.log; false)
 
 %files
 %defattr(-,root,root,-)
