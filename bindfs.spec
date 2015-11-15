@@ -16,6 +16,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  fuse-devel
 # for test suite
 BuildRequires:  ruby
+BuildRequires:  valgrind
 
 
 %description
@@ -44,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %check
 # show test-suite on errors
-make check || (cat tests/test-suite.log; false)
+make check || (cat tests/test-suite.log tests/internals/test-suite.log; false)
 
 %files
 %defattr(-,root,root,-)
