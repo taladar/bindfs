@@ -1,14 +1,16 @@
 %global _hardened_build 1
 
 Name:           bindfs
-Version:        1.12.6
-Release:        2%{?dist}
+Version:        1.13.0
+Release:        1%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
 License:        GPLv2+
 URL:            http://bindfs.org/
 Source0:        http://bindfs.org/downloads//bindfs-%{version}.tar.gz
+# 2015-11-15: Submitted upstream: https://github.com/mpartel/bindfs/pull/25
+Patch0:         bindfs-1.13.0-nobody_gid.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  fuse-devel
@@ -21,6 +23,7 @@ the mirror directory.
 
 %prep
 %setup -q
+%patch0 -p1 -b .nobody_gid
 
 
 %build
@@ -37,14 +40,24 @@ make install DESTDIR=$RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 
+%check
+make check
+
 %files
 %defattr(-,root,root,-)
-%doc COPYING ChangeLog README
+%{!?_licensedir:%global license %%doc}
+%license COPYING
+%doc ChangeLog README
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 
 
 %changelog
+* Sun Nov 15 2015 Till Maas <opensource@till.name> - 1.13.0-1
+- Update to new release
+- Use %%license
+- Add testsuite
+
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.12.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
