@@ -44,9 +44,15 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %check
-# show test-suite on errors
-# Does not work in Fedora's koji because fuse is not available
-#make check || (cat tests/test-suite.log tests/internals/test-suite.log; false)
+# Fedora's koji does not provide /dev/fuse, therefore skip the tests there
+# Always cat log files on failure to be able to debug issues
+if [ -e /dev/fuse ]; then
+    make check || (cat tests/test-suite.log tests/internals/test-suite.log; false)
+else
+    # internal tests use valgrind and should work
+    make -C tests/internals/ check || (cat tests/internals/test-suite.log; false)
+fi
+
 
 %files
 %defattr(-,root,root,-)
