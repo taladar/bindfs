@@ -45,7 +45,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %check
 # show test-suite on errors
-make check || (cat tests/test-suite.log tests/internals/test-suite.log; false)
+# Does not work in Fedora's koji because fuse is not available
+#make check || (cat tests/test-suite.log tests/internals/test-suite.log; false)
 
 %files
 %defattr(-,root,root,-)
