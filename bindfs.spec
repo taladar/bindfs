@@ -14,6 +14,8 @@ Patch0:         bindfs-1.13.0-nobody_gid.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  fuse-devel
+# for test suite
+BuildRequires:  ruby
 
 
 %description
