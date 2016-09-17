@@ -1,6 +1,6 @@
 Name:           bindfs
 Version:        1.13.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Fuse filesystem to mirror a directory
 
 Group:          System Environment/Base
@@ -13,6 +13,8 @@ BuildRequires:  fuse-devel
 # for test suite
 BuildRequires:  ruby
 BuildRequires:  valgrind
+# Needed to mount bindfs via fstab
+Recommends:     fuse
 
 
 %description
@@ -58,6 +60,9 @@ fi
 
 
 %changelog
+* Fri Apr 08 2016 Till Maas <opensource@till.name> - 1.13.1-2
+- Add recommendation for fuse (https://bugzilla.redhat.com/1320272)
+
 * Mon Feb 22 2016 Till Maas <opensource@till.name> - 1.13.1-1
 - Update to new release
 - cleanup spec
